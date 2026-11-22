@@ -9,13 +9,17 @@ interface TOCItem {
 }
 
 interface TableOfContentsProps {
-  headings: TOCItem[];
+  headings?: TOCItem[];
 }
 
-export function TableOfContents({ headings }: TableOfContentsProps) {
+export function TableOfContents({ headings = [] }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('');
+  const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
+    setMounted(true);
+    if (!headings || headings.length === 0) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -37,18 +41,23 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
+    if (typeof document === 'undefined') return;
     const targetElement = document.getElementById(id);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });
       setActiveId(id);
-      window.history.pushState(null, '', `#${id}`);
+      if (typeof window !== 'undefined') {
+        window.history.pushState(null, '', `#${id}`);
+      }
     }
   };
 
-  if (!headings || headings.length === 0) return null;
+  if (!headings || headings.length === 0) {
+    return null;
+  }
 
   return (
-    <nav className="rounded-xl border border-slate-200/90 bg-white/80 p-5 shadow-xs backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/70">
+    <nav aria-label="Table of contents" className="rounded-xl border border-slate-200/90 bg-white/80 p-5 shadow-xs backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/70">
       <div className="mb-3 flex items-center justify-between border-b border-slate-100 pb-2.5 dark:border-slate-800">
         <h3 className="text-xs font-bold tracking-wider text-slate-800 uppercase dark:text-slate-200">
           Table of Contents
@@ -60,7 +69,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
 
       <ul className="space-y-2 text-sm">
         {headings.map((heading) => {
-          const isActive = activeId === heading.id;
+          const isActive = mounted && activeId === heading.id;
           return (
             <li
               key={heading.id}
