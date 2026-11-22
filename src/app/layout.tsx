@@ -111,18 +111,18 @@ export default function RootLayout({
                 </h4>
                 <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
                   <li>
-                    <Link href="/blog/ad-monetization-playbook-2026" className="hover:text-[#047857] dark:hover:text-emerald-400">
-                      High-RPM Publishing Systems
+                    <Link href="/blog/enterprise-cloud-architecture-playbook" className="hover:text-[#047857] dark:hover:text-emerald-400">
+                      Multi-Region Cloud Architecture
                     </Link>
                   </li>
                   <li>
-                    <Link href="/blog/nextjs-adsense-cls-optimization" className="hover:text-[#047857] dark:hover:text-emerald-400">
-                      Next.js Zero-CLS Architecture
+                    <Link href="/blog/docker-container-memory-optimization-guide" className="hover:text-[#047857] dark:hover:text-emerald-400">
+                      Docker Memory & Cost Optimization
                     </Link>
                   </li>
                   <li>
-                    <Link href="/blog/top-high-rpm-niches-ranked" className="hover:text-[#047857] dark:hover:text-emerald-400">
-                      B2B Infrastructure Yield Analysis
+                    <Link href="/blog/cloudflare-workers-vs-aws-lambda-edge-benchmarks" className="hover:text-[#047857] dark:hover:text-emerald-400">
+                      Edge Compute Latency Benchmarks
                     </Link>
                   </li>
                 </ul>
