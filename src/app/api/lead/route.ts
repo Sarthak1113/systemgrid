@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 
+const DEFAULT_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycby6oY7S1vPsPRCeRYHLk0mRxJ9jUr3mYUFkVDiszFadIdKFE_XJACk7rwqGjTbA7vAeYA/exec';
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -12,9 +14,9 @@ export async function POST(request: Request) {
       );
     }
 
-    const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+    const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL || DEFAULT_WEBHOOK_URL;
 
-    // If Google Sheets webhook URL is configured in Vercel environment variables, forward data
+    // Forward to Google Apps Script Web App
     if (webhookUrl) {
       try {
         await fetch(webhookUrl, {
@@ -33,15 +35,6 @@ export async function POST(request: Request) {
       } catch (webhookErr) {
         console.error('Failed to forward to Google Sheets webhook:', webhookErr);
       }
-    } else {
-      console.log('Lead received (Set GOOGLE_SHEETS_WEBHOOK_URL in Vercel to save directly to Google Sheet):', {
-        type,
-        name,
-        email,
-        subject,
-        message,
-        timestamp: new Date().toISOString(),
-      });
     }
 
     return NextResponse.json({
