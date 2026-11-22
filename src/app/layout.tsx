@@ -87,12 +87,7 @@ export default function RootLayout({
               </Link>
             </nav>
 
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-[#047857] border border-emerald-200/80 dark:bg-emerald-950/50 dark:text-emerald-300 dark:border-emerald-800">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#047857] animate-pulse" />
-                systemgrid.dev
-              </span>
-            </div>
+
           </div>
         </header>
 

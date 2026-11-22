@@ -3,11 +3,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getPostBySlug, getAllPosts, getRelatedPosts } from '../../../lib/posts';
 import { generateArticleSchema, generateBreadcrumbSchema } from '../../../lib/schema';
+import { renderMarkdown } from '../../../lib/markdown';
 import { AdUnit } from '../../../components/AdUnit';
 import { TableOfContents } from '../../../components/TableOfContents';
 import { Breadcrumbs } from '../../../components/Breadcrumbs';
 import { ClusterNav } from '../../../components/ClusterNav';
 import { AuthorBio } from '../../../components/AuthorBio';
+import { NewsletterForm } from '../../../components/NewsletterForm';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -76,6 +78,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     { name: post.category, url: `${siteUrl}/category/${post.category.toLowerCase().replace(/\s+/g, '-')}` },
     { name: post.title, url: `${siteUrl}/blog/${post.slug}` },
   ]);
+
+  const htmlContent = renderMarkdown(post.content);
 
   return (
     <>
@@ -160,12 +164,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <article className="lg:col-span-8 prose prose-slate max-w-none dark:prose-invert">
             <div
               className="space-y-6 text-slate-700 leading-relaxed dark:text-slate-300 text-[15px]"
-              dangerouslySetInnerHTML={{
-                __html: post.content
-                  .replace(/## (.*)/g, '<h2 id="$1" class="text-2xl font-bold text-slate-900 mt-8 mb-4 dark:text-white scroll-mt-20">$1</h2>')
-                  .replace(/### (.*)/g, '<h3 id="$1" class="text-xl font-semibold text-slate-900 mt-6 mb-3 dark:text-slate-100 scroll-mt-20">$1</h3>')
-                  .replace(/\n\n/g, '<p class="my-4 leading-relaxed">')
-              }}
+              dangerouslySetInnerHTML={{ __html: htmlContent }}
             />
 
             {/* In-Article Midpoint Ad Slot (Disabled until Publisher ID is active) */}
@@ -184,7 +183,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           </article>
 
-          {/* Sticky Desktop Rail (TOC + High-RPM Sidebar Ad Slot) */}
+          {/* Sticky Desktop Rail (TOC + Sidebar) */}
           <aside className="hidden lg:block lg:col-span-4 sticky top-24 space-y-6">
             <TableOfContents headings={post.headings} />
 
@@ -197,25 +196,8 @@ export default async function BlogPostPage({ params }: PageProps) {
               />
             </div>
 
-            {/* System Intelligence Newsletter */}
-            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-900">
-              <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                SystemGrid Intelligence
-              </h4>
-              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-                Weekly verifiable benchmarks and distributed systems architecture teardowns.
-              </p>
-              <div className="mt-3 flex gap-2">
-                <input
-                  type="email"
-                  placeholder="engineer@company.com"
-                  className="flex-1 rounded-lg border border-slate-200 px-3 py-1.5 text-xs text-slate-800 placeholder-slate-400 focus:border-[#047857] focus:outline-hidden dark:border-slate-700 dark:bg-slate-800 dark:text-white"
-                />
-                <button className="rounded-lg bg-[#047857] px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-[#065f46] transition-colors">
-                  Join
-                </button>
-              </div>
-            </div>
+            {/* Dynamic Newsletter Form Box */}
+            <NewsletterForm />
           </aside>
         </div>
 

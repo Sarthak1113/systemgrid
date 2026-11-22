@@ -24,7 +24,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
           }
         });
       },
-      { rootMargin: '0% 0% -70% 0%' }
+      { rootMargin: '-80px 0% -65% 0%' }
     );
 
     headings.forEach((heading) => {
@@ -35,10 +35,20 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
     return () => observer.disconnect();
   }, [headings]);
 
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(id);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+      setActiveId(id);
+      window.history.pushState(null, '', `#${id}`);
+    }
+  };
+
   if (!headings || headings.length === 0) return null;
 
   return (
-    <nav className="rounded-xl border border-slate-200/90 bg-white/70 p-5 shadow-xs backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/60">
+    <nav className="rounded-xl border border-slate-200/90 bg-white/80 p-5 shadow-xs backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/70">
       <div className="mb-3 flex items-center justify-between border-b border-slate-100 pb-2.5 dark:border-slate-800">
         <h3 className="text-xs font-bold tracking-wider text-slate-800 uppercase dark:text-slate-200">
           Table of Contents
@@ -58,9 +68,10 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
             >
               <a
                 href={`#${heading.id}`}
-                className={`group flex items-start py-0.5 text-xs transition-colors duration-150 ${
+                onClick={(e) => handleScrollTo(e, heading.id)}
+                className={`group flex items-start py-0.5 text-xs transition-colors duration-150 cursor-pointer ${
                   isActive
-                    ? 'font-semibold text-[#047857] dark:text-emerald-400'
+                    ? 'font-bold text-[#047857] dark:text-emerald-400'
                     : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
                 }`}
               >

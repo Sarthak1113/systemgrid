@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { slugify } from './markdown';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 
@@ -63,10 +64,7 @@ export function getPostBySlug(slug: string): Post | null {
   while ((match = headingRegex.exec(content)) !== null) {
     const level = match[1].length;
     const text = match[2].trim();
-    const id = text
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/\s+/g, '-');
+    const id = slugify(text);
     headings.push({ id, text, level });
   }
 
