@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return {};
 
   return {
-    title: `${post.title} | RPMEngine`,
+    title: `${post.title} | SystemGrid`,
     description: post.description,
     authors: [{ name: post.author.name }],
     openGraph: {
@@ -59,7 +59,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const spokePosts = allPosts.filter((p) => p.cluster === post.cluster && !p.isPillar);
   const relatedPosts = getRelatedPosts(post.slug, post.cluster, 3);
 
-  const siteUrl = 'https://your-domain.vercel.app';
+  const siteUrl = 'https://systemgrid.dev';
   const articleSchema = generateArticleSchema(post, siteUrl);
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: siteUrl },

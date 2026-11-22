@@ -22,13 +22,13 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="my-10 text-center max-w-3xl mx-auto">
         <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 mb-4">
-          <span>Targeting $45+ Page RPM</span>
+          <span>Enterprise Cloud & Systems Engineering</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
-          AdSense Revenue & Technical Publishing Blueprint
+          SystemGrid Technical Intelligence
         </h1>
         <p className="mt-4 text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-          High-yield topic clusters, zero Cumulative Layout Shift (CLS) implementations, and rigorous editorial standards designed to satisfy Google Search, Answer Engines, and human readers.
+          Verifiable infrastructure benchmarks, distributed systems architecture, zero-CLS performance optimization, and high-yield cloud monetization.
         </p>
       </section>
 
@@ -94,7 +94,7 @@ export default function HomePage() {
               Topic Cluster: Implementation Spokes
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Technical walkthroughs and market benchmarks connected to the master playbook.
+              Technical walkthroughs and performance benchmarks connected to the master playbook.
             </p>
           </div>
         </div>

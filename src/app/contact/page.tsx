@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Editorial & Advertising | RPMEngine',
+  title: 'Contact Editorial & Advertising | SystemGrid',
   description: 'Reach our editorial desk, report corrections, or inquire about direct sponsorships.',
 };
 

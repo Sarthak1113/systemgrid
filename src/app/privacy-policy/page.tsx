@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy & Cookie Disclosure | RPMEngine',
+  title: 'Privacy Policy & Cookie Disclosure | SystemGrid',
   description: 'Our privacy practices, third-party advertising disclosures, and Google AdSense cookie compliance.',
 };
 
@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
 
       <div className="prose prose-slate dark:prose-invert max-w-none space-y-6 text-sm text-slate-700 dark:text-slate-300">
         <p>
-          RPMEngine (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your personal information. This Privacy Policy outlines our practices regarding information collection, advertising partnerships, and data protection.
+          SystemGrid (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your personal information. This Privacy Policy outlines our practices regarding information collection, advertising partnerships, and data protection.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900 dark:text-white mt-6">

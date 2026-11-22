@@ -3,7 +3,7 @@ import { getAllPosts } from '../lib/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
-  const siteUrl = 'https://your-domain.vercel.app';
+  const siteUrl = 'https://systemgrid.dev';
 
   const postEntries: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${siteUrl}/blog/${post.slug}`,
@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.5,
+      priority: 0.6,
     },
     {
       url: `${siteUrl}/contact`,
@@ -33,6 +33,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/privacy-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.3,
+    },
+    {
+      url: `${siteUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.3,
+    },
+    {
+      url: `${siteUrl}/disclaimer`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.3,

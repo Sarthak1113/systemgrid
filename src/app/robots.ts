@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl = 'https://your-domain.vercel.app';
+  const siteUrl = 'https://systemgrid.dev';
 
   return {
     rules: [
@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/'],
       },
       {
-        userAgent: ['GPTBot', 'PerplexityBot', 'ClaudeBot', 'Google-Extended'],
+        userAgent: ['GPTBot', 'PerplexityBot', 'ClaudeBot', 'Google-Extended', 'Applebot-Extended'],
         allow: '/',
       },
     ],

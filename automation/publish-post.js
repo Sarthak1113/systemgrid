@@ -104,7 +104,7 @@ function auditArticle(filePath) {
 
 function runAuditAndPublish() {
   console.log('==================================================');
-  console.log('🔍 RPMEngine Editorial & Quality Gate Audit');
+  console.log('🔍 SystemGrid Editorial & Quality Gate Audit');
   console.log('==================================================\n');
   const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith('.md'));
   let totalErrors = 0;

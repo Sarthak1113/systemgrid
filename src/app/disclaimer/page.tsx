@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Advertising & Affiliate Disclaimer | RPMEngine',
+  title: 'Advertising & Affiliate Disclaimer | SystemGrid',
   description: 'Official advertising disclosure and earnings disclaimer.',
 };
 

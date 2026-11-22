@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | RPMEngine',
-  description: 'Terms governing the access and use of RPMEngine publishing resources.',
+  title: 'Terms of Service | SystemGrid',
+  description: 'Terms governing the access and use of SystemGrid publishing resources.',
 };
 
 export default function TermsPage() {
@@ -18,14 +18,14 @@ export default function TermsPage() {
           1. Acceptance of Terms
         </h2>
         <p>
-          By accessing and browsing RPMEngine, you agree to comply with and be bound by these Terms of Service and all applicable laws and regulations.
+          By accessing and browsing SystemGrid, you agree to comply with and be bound by these Terms of Service and all applicable laws and regulations.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900 dark:text-white">
           2. Intellectual Property
         </h2>
         <p>
-          Original editorial articles, research tables, code examples, and layout designs published on RPMEngine remain the exclusive property of the publication. Re-publishing full articles without written attribution is prohibited.
+          Original editorial articles, research tables, code examples, and layout designs published on SystemGrid remain the exclusive property of the publication. Re-publishing full articles without written attribution is prohibited.
         </p>
       </div>
     </div>

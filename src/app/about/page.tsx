@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Our Publication & Editorial Board | RPMEngine',
+  title: 'About Our Publication & Editorial Board | SystemGrid',
   description: 'Learn about our editorial integrity, research methodology, and monetization testing lab.',
 };
 
@@ -13,7 +13,7 @@ export default function AboutPage() {
           Editorial Integrity & Standards
         </span>
         <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
-          About RPMEngine
+          About SystemGrid
         </h1>
         <p className="mt-2 text-base text-slate-600 dark:text-slate-300 leading-relaxed">
           We publish verified technical guides, yield analysis, and performance architectures for digital publishers and developers.
@@ -25,7 +25,7 @@ export default function AboutPage() {
           Our Editorial Philosophy
         </h2>
         <p>
-          Every article published on RPMEngine adheres to a zero-fluff standard. We do not use automated filler content. Every guide is vetted for technical accuracy, reproducible steps, and verified benchmarks.
+          Every article published on SystemGrid adheres to a zero-fluff standard. We do not use automated filler content. Every guide is vetted for technical accuracy, reproducible steps, and verified benchmarks.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900 dark:text-white">

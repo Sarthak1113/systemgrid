@@ -1,6 +1,6 @@
 import { Post } from './posts';
 
-export function generateArticleSchema(post: Post, siteUrl: string) {
+export function generateArticleSchema(post: Post, siteUrl: string = 'https://systemgrid.dev') {
   return {
     '@context': 'https://schema.org',
     '@type': post.schemaType || 'TechArticle',
@@ -16,7 +16,8 @@ export function generateArticleSchema(post: Post, siteUrl: string) {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'AdSense Revenue Engine',
+      name: 'SystemGrid',
+      url: siteUrl,
       logo: {
         '@type': 'ImageObject',
         url: `${siteUrl}/logo.png`,
