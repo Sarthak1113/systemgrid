@@ -81,3 +81,21 @@ export function getRelatedPosts(currentSlug: string, cluster: string, limit = 3)
     .filter((post) => post.slug !== currentSlug && post.cluster === cluster)
     .slice(0, limit);
 }
+
+export function getAllCategories(): { name: string; slug: string; count: number }[] {
+  const posts = getAllPosts();
+  const map = new Map<string, { name: string; slug: string; count: number }>();
+  posts.forEach((p) => {
+    const slug = slugify(p.category);
+    if (!map.has(slug)) {
+      map.set(slug, { name: p.category, slug, count: 0 });
+    }
+    map.get(slug)!.count += 1;
+  });
+  return Array.from(map.values());
+}
+
+export function getPostsByCategory(categorySlug: string): PostMeta[] {
+  const posts = getAllPosts();
+  return posts.filter((p) => slugify(p.category) === categorySlug);
+}

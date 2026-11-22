@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next';
-import { getAllPosts } from '../lib/posts';
+import { getAllPosts, getAllCategories } from '../lib/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
+  const categories = getAllCategories();
   const siteUrl = 'https://systemgrid.dev';
 
   const postEntries: MetadataRoute.Sitemap = posts.map((post) => ({
@@ -10,6 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.updatedAt || post.publishedAt),
     changeFrequency: 'weekly',
     priority: post.isPillar ? 1.0 : 0.8,
+  }));
+
+  const categoryEntries: MetadataRoute.Sitemap = categories.map((cat) => ({
+    url: `${siteUrl}/category/${cat.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.7,
   }));
 
   const staticPages: MetadataRoute.Sitemap = [
@@ -51,5 +59,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return [...staticPages, ...postEntries];
+  return [...staticPages, ...categoryEntries, ...postEntries];
 }

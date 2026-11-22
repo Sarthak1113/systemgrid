@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getPostBySlug, getAllPosts, getRelatedPosts } from '../../../lib/posts';
 import { generateArticleSchema, generateBreadcrumbSchema } from '../../../lib/schema';
-import { renderMarkdown } from '../../../lib/markdown';
+import { renderMarkdown, slugify } from '../../../lib/markdown';
 import { AdUnit } from '../../../components/AdUnit';
 import { TableOfContents } from '../../../components/TableOfContents';
 import { Breadcrumbs } from '../../../components/Breadcrumbs';
@@ -103,7 +103,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Breadcrumb Navigation */}
         <Breadcrumbs
           items={[
-            { name: post.category, url: `#` },
+            { name: post.category, url: `/category/${slugify(post.category)}` },
             { name: post.title, url: `/blog/${post.slug}` },
           ]}
         />
@@ -111,9 +111,12 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Article Header */}
         <header className="mx-auto max-w-4xl mb-8">
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="rounded-full bg-emerald-50 px-3 py-0.5 text-xs font-bold text-[#047857] border border-emerald-200/80 dark:bg-emerald-950 dark:text-emerald-300">
+            <Link
+              href={`/category/${slugify(post.category)}`}
+              className="rounded-full bg-emerald-50 px-3 py-0.5 text-xs font-bold text-[#047857] border border-emerald-200/80 hover:bg-emerald-100 dark:bg-emerald-950 dark:text-emerald-300 dark:border-emerald-800 transition-colors"
+            >
               {post.category}
-            </span>
+            </Link>
             <span className="text-xs text-slate-400">
               {post.readingTime} • Published {post.publishedAt}
             </span>

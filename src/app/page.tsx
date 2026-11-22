@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getAllPosts } from '../lib/posts';
+import { slugify } from '../lib/markdown';
 import { AdUnit } from '../components/AdUnit';
 
 export default function HomePage() {
@@ -107,9 +108,12 @@ export default function HomePage() {
             >
               <div>
                 <div className="flex items-center justify-between text-[11px] text-slate-400 mb-2">
-                  <span className="font-semibold text-[#047857] uppercase tracking-wide">
+                  <Link
+                    href={`/category/${slugify(spoke.category)}`}
+                    className="font-semibold text-[#047857] uppercase tracking-wide hover:underline"
+                  >
                     {spoke.category}
-                  </span>
+                  </Link>
                   <span>{spoke.readingTime}</span>
                 </div>
 
