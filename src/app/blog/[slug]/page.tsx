@@ -33,15 +33,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: post.title,
       description: post.description,
       type: 'article',
+      url: `https://systemgrid.dev/blog/${post.slug}`,
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
       authors: [post.author.name],
       tags: post.tags,
+      images: [
+        {
+          url: '/logo-light.png',
+          width: 300,
+          height: 57,
+          alt: post.title,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
+      images: ['/logo-light.png'],
     },
   };
 }
@@ -80,7 +90,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       />
 
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        {/* Top Leaderboard Ad Slot */}
+        {/* Top Leaderboard Ad Slot (Disabled until Publisher ID is active) */}
         <div className="mx-auto max-w-4xl mb-6">
           <AdUnit
             slotId="article-top-leaderboard"
@@ -101,7 +111,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Article Header */}
         <header className="mx-auto max-w-4xl mb-8">
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="rounded-full bg-emerald-100 px-3 py-0.5 text-xs font-bold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+            <span className="rounded-full bg-emerald-50 px-3 py-0.5 text-xs font-bold text-[#047857] border border-emerald-200/80 dark:bg-emerald-950 dark:text-emerald-300">
               {post.category}
             </span>
             <span className="text-xs text-slate-400">
@@ -121,7 +131,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <img
               src={post.author.avatar}
               alt={post.author.name}
-              className="h-10 w-10 rounded-full object-cover ring-2 ring-emerald-500/20"
+              className="h-10 w-10 rounded-full object-cover ring-2 ring-[#047857]/30"
             />
             <div>
               <p className="text-xs font-bold text-slate-900 dark:text-slate-100">
@@ -138,17 +148,16 @@ export default async function BlogPostPage({ params }: PageProps) {
         <div className="mx-auto max-w-4xl">
           <ClusterNav
             currentSlug={post.slug}
-            clusterTitle="AdSense Revenue Mastery"
+            clusterTitle="Distributed Systems & Cloud Architecture"
             pillarPost={pillarPost}
             spokePosts={spokePosts}
           />
         </div>
 
-        {/* Main 2-Column Split: Editorial on Left, Sticky Sidebar & Ad on Right */}
+        {/* Main 2-Column Split: Editorial on Left, Sticky Sidebar on Right */}
         <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Main Editorial Content Column */}
           <article className="lg:col-span-8 prose prose-slate max-w-none dark:prose-invert">
-            {/* Simple Markdown Render (In production, replace with @next/mdx or markdown-to-jsx) */}
             <div
               className="space-y-6 text-slate-700 leading-relaxed dark:text-slate-300 text-[15px]"
               dangerouslySetInnerHTML={{
@@ -159,7 +168,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               }}
             />
 
-            {/* In-Article Midpoint Ad Slot */}
+            {/* In-Article Midpoint Ad Slot (Disabled until Publisher ID is active) */}
             <div className="my-8 not-prose">
               <AdUnit
                 slotId="in-article-banner-mid"
@@ -175,7 +184,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           </article>
 
-          {/* Sticky Desktop Rail (TOC + High-RPM 300x600 Ad Unit) */}
+          {/* Sticky Desktop Rail (TOC + High-RPM Sidebar Ad Slot) */}
           <aside className="hidden lg:block lg:col-span-4 sticky top-24 space-y-6">
             <TableOfContents headings={post.headings} />
 
@@ -188,21 +197,21 @@ export default async function BlogPostPage({ params }: PageProps) {
               />
             </div>
 
-            {/* Quick Newsletter / Retention Box */}
+            {/* System Intelligence Newsletter */}
             <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-900">
               <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                Publishing Intelligence
+                SystemGrid Intelligence
               </h4>
               <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-                Receive weekly programmatic monetization teardowns directly in your inbox.
+                Weekly verifiable benchmarks and distributed systems architecture teardowns.
               </p>
               <div className="mt-3 flex gap-2">
                 <input
                   type="email"
-                  placeholder="name@company.com"
-                  className="flex-1 rounded-lg border border-slate-200 px-3 py-1.5 text-xs text-slate-800 placeholder-slate-400 focus:border-emerald-500 focus:outline-hidden dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  placeholder="engineer@company.com"
+                  className="flex-1 rounded-lg border border-slate-200 px-3 py-1.5 text-xs text-slate-800 placeholder-slate-400 focus:border-[#047857] focus:outline-hidden dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                 />
-                <button className="rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-emerald-700 transition-colors">
+                <button className="rounded-lg bg-[#047857] px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-[#065f46] transition-colors">
                   Join
                 </button>
               </div>
@@ -210,7 +219,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </aside>
         </div>
 
-        {/* Bottom Related Articles Section (Boosts Pageviews / Ad Impressions) */}
+        {/* Bottom Related Articles Section */}
         {relatedPosts.length > 0 && (
           <section className="my-16 border-t border-slate-200 pt-10 dark:border-slate-800">
             <div className="mb-6">
@@ -218,7 +227,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 Related Articles in This Series
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Continue exploring the AdSense optimization architecture.
+                Explore the connected engineering guides.
               </p>
             </div>
 
@@ -226,15 +235,15 @@ export default async function BlogPostPage({ params }: PageProps) {
               {relatedPosts.map((related) => (
                 <div
                   key={related.slug}
-                  className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs transition-all hover:border-emerald-500/40 hover:shadow-sm dark:border-slate-800 dark:bg-slate-900"
+                  className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs transition-all hover:border-[#047857]/50 hover:shadow-sm dark:border-slate-800 dark:bg-slate-900"
                 >
-                  <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-wide">
+                  <span className="text-[10px] font-bold text-[#047857] uppercase tracking-wide">
                     {related.category}
                   </span>
                   <h4 className="mt-1.5 text-sm font-bold text-slate-900 dark:text-white line-clamp-2">
                     <Link
                       href={`/blog/${related.slug}`}
-                      className="hover:text-emerald-600 transition-colors"
+                      className="hover:text-[#047857] transition-colors"
                     >
                       {related.title}
                     </Link>
@@ -246,9 +255,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <span>{related.readingTime}</span>
                     <Link
                       href={`/blog/${related.slug}`}
-                      className="font-semibold text-emerald-600 hover:text-emerald-700"
+                      className="font-semibold text-[#047857] hover:text-[#065f46]"
                     >
-                      Read Now →
+                      Read Guide →
                     </Link>
                   </div>
                 </div>
@@ -257,7 +266,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </section>
         )}
 
-        {/* Bottom Multiplex / Content Recommendation Ad Unit */}
+        {/* Bottom Multiplex Ad Unit (Disabled until Publisher ID is active) */}
         <div className="my-10 max-w-4xl mx-auto">
           <AdUnit
             slotId="article-bottom-multiplex"

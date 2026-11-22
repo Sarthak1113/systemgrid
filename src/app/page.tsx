@@ -9,7 +9,7 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      {/* Top Billboard Leaderboard Ad */}
+      {/* Top Billboard Leaderboard Ad (Disabled until Publisher ID is added) */}
       <div className="mx-auto max-w-4xl">
         <AdUnit
           slotId="header-leaderboard"
@@ -21,7 +21,7 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="my-10 text-center max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 mb-4">
+        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3.5 py-1 text-xs font-semibold text-[#047857] border border-emerald-200/80 dark:bg-emerald-950 dark:text-emerald-300 mb-4">
           <span>Enterprise Cloud & Systems Engineering</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
@@ -35,9 +35,9 @@ export default function HomePage() {
       {/* Featured Pillar Hub */}
       {pillarPost && (
         <section className="my-12">
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm transition-all hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-xs transition-all hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
             <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <span className="rounded-full bg-emerald-600 px-3 py-0.5 text-xs font-bold text-white uppercase tracking-wider">
+              <span className="rounded-full bg-[#047857] px-3 py-0.5 text-xs font-bold text-white uppercase tracking-wider">
                 Core Pillar Guide
               </span>
               <span className="text-xs text-slate-400">
@@ -48,7 +48,7 @@ export default function HomePage() {
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
               <Link
                 href={`/blog/${pillarPost.slug}`}
-                className="hover:text-emerald-600 transition-colors"
+                className="hover:text-[#047857] transition-colors"
               >
                 {pillarPost.title}
               </Link>
@@ -63,7 +63,7 @@ export default function HomePage() {
                 <img
                   src={pillarPost.author.avatar}
                   alt={pillarPost.author.name}
-                  className="h-9 w-9 rounded-full object-cover ring-2 ring-emerald-500/20"
+                  className="h-9 w-9 rounded-full object-cover ring-2 ring-[#047857]/30"
                 />
                 <div>
                   <p className="text-xs font-bold text-slate-800 dark:text-slate-200">
@@ -77,7 +77,7 @@ export default function HomePage() {
 
               <Link
                 href={`/blog/${pillarPost.slug}`}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-emerald-600 transition-colors dark:bg-white dark:text-slate-900 dark:hover:bg-emerald-400"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-[#047857] transition-colors dark:bg-white dark:text-slate-900 dark:hover:bg-[#047857] dark:hover:text-white"
               >
                 Read Master Guide →
               </Link>
@@ -103,11 +103,11 @@ export default function HomePage() {
           {spokePosts.map((spoke) => (
             <article
               key={spoke.slug}
-              className="flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs transition-all hover:border-emerald-500/40 hover:shadow-sm dark:border-slate-800 dark:bg-slate-900"
+              className="flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs transition-all hover:border-[#047857]/50 hover:shadow-sm dark:border-slate-800 dark:bg-slate-900"
             >
               <div>
                 <div className="flex items-center justify-between text-[11px] text-slate-400 mb-2">
-                  <span className="font-semibold text-emerald-600 uppercase tracking-wide">
+                  <span className="font-semibold text-[#047857] uppercase tracking-wide">
                     {spoke.category}
                   </span>
                   <span>{spoke.readingTime}</span>
@@ -116,7 +116,7 @@ export default function HomePage() {
                 <h4 className="text-lg font-bold text-slate-900 dark:text-white leading-snug">
                   <Link
                     href={`/blog/${spoke.slug}`}
-                    className="hover:text-emerald-600 transition-colors"
+                    className="hover:text-[#047857] transition-colors"
                   >
                     {spoke.title}
                   </Link>
@@ -133,7 +133,7 @@ export default function HomePage() {
                 </span>
                 <Link
                   href={`/blog/${spoke.slug}`}
-                  className="text-xs font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400"
+                  className="text-xs font-semibold text-[#047857] hover:text-[#065f46] dark:text-emerald-400"
                 >
                   Explore Guide →
                 </Link>
@@ -143,7 +143,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Mid-Page Display Ad Unit */}
+      {/* Mid-Page Display Ad Unit (Disabled until Publisher ID is set) */}
       <div className="my-12 max-w-4xl mx-auto">
         <AdUnit
           slotId="home-feed-banner"

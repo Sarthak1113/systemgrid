@@ -33,3 +33,13 @@
 .prose tr:hover {
   background-color: #f8fafc;
 }
+
+.prose a {
+  color: #047857;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose a:hover {
+  color: #065f46;
+}

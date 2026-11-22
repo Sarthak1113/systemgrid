@@ -60,14 +60,14 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
                 href={`#${heading.id}`}
                 className={`group flex items-start py-0.5 text-xs transition-colors duration-150 ${
                   isActive
-                    ? 'font-semibold text-emerald-600 dark:text-emerald-400'
+                    ? 'font-semibold text-[#047857] dark:text-emerald-400'
                     : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
                 }`}
               >
                 <span
                   className={`mr-2 mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full transition-all ${
                     isActive
-                      ? 'scale-125 bg-emerald-500'
+                      ? 'scale-125 bg-[#047857]'
                       : 'bg-slate-300 group-hover:bg-slate-400 dark:bg-slate-700'
                   }`}
                 />
