@@ -7,7 +7,6 @@ import { renderMarkdown } from '../../../lib/markdown';
 import { AdUnit } from '../../../components/AdUnit';
 import { TableOfContents } from '../../../components/TableOfContents';
 import { Breadcrumbs } from '../../../components/Breadcrumbs';
-import { ClusterNav } from '../../../components/ClusterNav';
 import { AuthorBio } from '../../../components/AuthorBio';
 import { NewsletterForm } from '../../../components/NewsletterForm';
 
@@ -66,9 +65,6 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
-  const allPosts = getAllPosts();
-  const pillarPost = allPosts.find((p) => p.cluster === post.cluster && p.isPillar);
-  const spokePosts = allPosts.filter((p) => p.cluster === post.cluster && !p.isPillar);
   const relatedPosts = getRelatedPosts(post.slug, post.cluster, 3);
 
   const siteUrl = 'https://systemgrid.dev';
@@ -148,15 +144,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         </header>
 
-        {/* Topic Cluster Hub Navigation */}
-        <div className="mx-auto max-w-4xl">
-          <ClusterNav
-            currentSlug={post.slug}
-            clusterTitle="Distributed Systems & Cloud Architecture"
-            pillarPost={pillarPost}
-            spokePosts={spokePosts}
-          />
-        </div>
+
 
         {/* Main 2-Column Split: Editorial on Left, Sticky Sidebar on Right */}
         <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
