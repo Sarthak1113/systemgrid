@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Demo Preview: Next.js AdSense High-RPM Publishing Network</title>
+  <!-- Tailwind CSS CDN for instant visual preview -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              900: '#14532d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Prevent layout shifts */
+    .ad-slot-protected {
+      min-height: 250px;
+    }
+    .ad-leaderboard {
+      min-height: 90px;
+    }
+    .ad-sidebar {
+      min-height: 600px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- Global Header -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2">
+        <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 font-extrabold text-white shadow-md">
+          ▲
+        </span>
+        <div class="flex flex-col">
+          <span class="text-base font-extrabold tracking-tight text-slate-900">
+            RPM<span class="text-emerald-600">Engine</span>
+          </span>
+          <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 -mt-1">
+            AdSense Network Demo
+          </span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-600">
+        <a href="#article" class="text-emerald-600">Article View</a>
+        <a href="#topic-cluster" class="hover:text-emerald-600 transition-colors">Topic Cluster</a>
+        <a href="#adsense-slots" class="hover:text-emerald-600 transition-colors">Ad Placements</a>
+        <a href="#eeat-author" class="hover:text-emerald-600 transition-colors">E-E-A-T Bio</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 border border-emerald-200/60">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          Interactive Demo
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Top Leaderboard Ad Unit (Shift-Protected Container) -->
+  <div class="mx-auto max-w-4xl px-4 pt-6">
+    <div class="ad-leaderboard relative flex flex-col items-center justify-center rounded-xl border border-dashed border-emerald-300 bg-emerald-50/50 p-4 transition-all hover:bg-emerald-50">
+      <span class="absolute top-2 right-3 text-[10px] font-bold tracking-wider text-emerald-600 uppercase">
+        Sponsored Billboard (728x90)
+      </span>
+      <div class="text-center">
+        <p class="text-xs font-bold text-slate-700">Top-of-Page Responsive Leaderboard</p>
+        <p class="text-[11px] text-slate-400">Pre-allocated height prevents CLS score degradation</p>
+      </div>
+    </div>
+  </div>
+
+  <main class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8" id="article">
+    <!-- Breadcrumbs -->
+    <nav class="mb-4 text-xs text-slate-500">
+      <ol class="flex items-center gap-1.5">
+        <li><a href="#" class="hover:text-slate-800">Home</a></li>
+        <li class="text-slate-300">/</li>
+        <li><a href="#" class="hover:text-slate-800">Monetization Strategy</a></li>
+        <li class="text-slate-300">/</li>
+        <li class="font-medium text-slate-800">The 2026 AdSense Revenue Playbook</li>
+      </ol>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="mx-auto max-w-4xl mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="rounded-full bg-emerald-100 px-3 py-0.5 text-xs font-bold text-emerald-800">
+          Monetization Strategy
+        </span>
+        <span class="text-xs text-slate-400">7 min read • Updated Nov 22, 2026</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
+        The 2026 AdSense Revenue Playbook: Engineering High-RPM Publishing Sites
+      </h1>
+
+      <p class="mt-3 text-base text-slate-600 leading-relaxed">
+        A complete framework for monetizing content sites with Google AdSense, balancing aggressive RPM growth against Core Web Vitals and user retention.
+      </p>
+
+      <div class="mt-5 flex items-center gap-3 border-y border-slate-100 py-3">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Marcus Vance" class="h-10 w-10 rounded-full object-cover ring-2 ring-emerald-500/20">
+        <div>
+          <p class="text-xs font-bold text-slate-900">Marcus Vance</p>
+          <p class="text-[11px] text-slate-400">Head of Growth & Monetization • Peer-reviewed</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Topic Cluster Internal Linking Hub -->
+    <section id="topic-cluster" class="mx-auto max-w-4xl mb-8">
+      <div class="rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-50/50 via-white to-slate-50 p-5 shadow-xs">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span class="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-[10px] font-bold text-white">★</span>
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-800">Topic Cluster: AdSense Revenue Mastery</h3>
+          </div>
+          <span class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">Core Series</span>
+        </div>
+        <p class="text-xs text-slate-600 mb-3">
+          This article is the foundational pillar. Explore the connected technical and market spokes:
+        </p>
+        <ul class="space-y-1.5 text-xs">
+          <li class="flex items-center gap-2">
+            <span class="font-bold text-emerald-700">[Pillar Hub]</span>
+            <span class="font-semibold text-slate-900">The 2026 AdSense Revenue Playbook (Current)</span>
+          </li>
+          <li class="flex items-center gap-2 text-slate-600">
+            <span class="font-mono text-slate-400">01.</span>
+            <a href="#cls-optimization" class="hover:text-emerald-600 underline">Next.js AdSense Integration: Zero-CLS Placement Guide</a>
+          </li>
+          <li class="flex items-center gap-2 text-slate-600">
+            <span class="font-mono text-slate-400">02.</span>
+            <a href="#rpm-niches" class="hover:text-emerald-600 underline">Top High-RPM AdSense Niches for 2026: Benchmark Data</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2-Column Responsive Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Editorial Content Column -->
+      <article class="lg:col-span-8 space-y-6 text-slate-700 leading-relaxed text-[15px]">
+        
+        <!-- BLUF / AEO Direct Answer Block -->
+        <div class="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/70 p-4">
+          <p class="text-xs font-bold uppercase tracking-wider text-emerald-800 mb-1">AEO Direct Answer (BLUF)</p>
+          <p class="text-sm font-medium text-slate-800">
+            Google AdSense monetization succeeds or fails on three levers: traffic geography, buyer intent, and layout viewability. Publishers who treat ad placements as an afterthought average $2 to $5 Page RPM. Those who engineer layouts around content pauses, viewport dwell time, and zero layout shift routinely hit $25 to $60 RPM.
+          </p>
+        </div>
+
+        <h2 id="economics" class="text-2xl font-bold text-slate-900 pt-2">The Economics of Modern Page RPM</h2>
+        <p>
+          Page RPM measures total earnings per 1,000 pageviews across all ad units combined. Three distinct variables control your final yield: Cost Per Click (CPC), Click-Through Rate (CTR), and Active View Viewability.
+        </p>
+
+        <!-- Informational Gain Comparison Table -->
+        <div class="overflow-x-auto my-4 rounded-xl border border-slate-200 bg-white">
+          <table class="w-full text-xs text-left">
+            <thead class="bg-slate-50 text-slate-900 border-b border-slate-200">
+              <tr>
+                <th class="p-3 font-bold">Metric Component</th>
+                <th class="p-3 font-bold">Unoptimized Site</th>
+                <th class="p-3 font-bold text-emerald-700">Engineered High-RPM Site</th>
+                <th class="p-3 font-bold">Direct Revenue Impact</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-600">
+              <tr>
+                <td class="p-3 font-semibold text-slate-800">Average Page RPM</td>
+                <td class="p-3">$3.50</td>
+                <td class="p-3 font-bold text-emerald-600">$34.20</td>
+                <td class="p-3 font-bold">+877% Revenue</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-slate-800">Active View Viewability</td>
+                <td class="p-3">42%</td>
+                <td class="p-3 font-bold text-emerald-600">76%</td>
+                <td class="p-3">2.4x higher advertiser bids</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-slate-800">Cumulative Layout Shift (CLS)</td>
+                <td class="p-3 text-red-500 font-semibold">0.28 (Failing)</td>
+                <td class="p-3 text-emerald-600 font-bold">0.01 (Passing)</td>
+                <td class="p-3">Protected Search Ranking</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- In-Article Midpoint Ad Slot (No Shift) -->
+        <div id="adsense-slots" class="ad-slot-protected relative my-8 flex flex-col items-center justify-center rounded-xl border border-dashed border-emerald-300 bg-emerald-50/40 p-4">
+          <span class="absolute top-2 right-3 text-[10px] font-bold text-emerald-600 uppercase">
+            In-Article Adaptive Slot (336x280 / Responsive)
+          </span>
+          <div class="text-center">
+            <p class="text-xs font-bold text-slate-700">Native In-Content Ad Placement</p>
+            <p class="text-[11px] text-slate-400">Positioned after natural cognitive break; reserves 250px container</p>
+          </div>
+        </div>
+
+        <h2 id="rules" class="text-2xl font-bold text-slate-900 pt-2">Three Layout Rules That Double Viewability</h2>
+        <p>
+          Display ads must be engineered into the reading experience rather than sprayed haphazardly over the DOM:
+        </p>
+        <ol class="list-decimal pl-5 space-y-2 text-sm">
+          <li><strong>Reserve Fixed Aspect Ratios:</strong> Never load uncontained ad scripts that push paragraphs down. Pre-size every wrapper.</li>
+          <li><strong>Sticky Desktop Rail:</strong> Keep a 300x600 half-page unit pinned as readers scroll through long-form tutorials.</li>
+          <li><strong>Cognitive Break Injections:</strong> Insert units only after full thought units, never between a subhead and its opening sentence.</li>
+        </ol>
+
+        <!-- E-E-A-T Author Box -->
+        <div id="eeat-author" class="my-8 flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Marcus Vance" class="h-14 w-14 rounded-full object-cover ring-2 ring-emerald-500/20">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="text-sm font-bold text-slate-900">Marcus Vance</h4>
+              <span class="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-800">Verified Specialist</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Head of Growth & Monetization. Researches programmatic yield, Core Web Vitals, and search algorithms.</p>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Sticky Desktop Sidebar Rail -->
+      <aside class="hidden lg:block lg:col-span-4 sticky top-24 space-y-6">
+        
+        <!-- Interactive Table of Contents -->
+        <div class="rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-3">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-800">Table of Contents</h3>
+            <span class="text-[10px] text-slate-400 font-mono">3 Sections</span>
+          </div>
+          <ul class="space-y-2 text-xs">
+            <li>
+              <a href="#economics" class="flex items-center gap-2 text-slate-600 hover:text-emerald-600">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                <span>The Economics of Page RPM</span>
+              </a>
+            </li>
+            <li>
+              <a href="#rules" class="flex items-center gap-2 text-slate-600 hover:text-emerald-600">
+                <span class="h-1.5 w-1.5 rounded-full bg-slate-300"></span>
+                <span>Three Layout Rules That Double Viewability</span>
+              </a>
+            </li>
+            <li>
+              <a href="#topic-cluster" class="flex items-center gap-2 text-slate-600 hover:text-emerald-600">
+                <span class="h-1.5 w-1.5 rounded-full bg-slate-300"></span>
+                <span>Internal Linking & Topic Clusters</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sticky 300x600 Half-Page Ad Unit (Highest Viewability Slot) -->
+        <div class="ad-sidebar relative flex flex-col items-center justify-center rounded-xl border border-dashed border-emerald-300 bg-emerald-50/50 p-4 text-center">
+          <span class="absolute top-2 right-3 text-[10px] font-bold text-emerald-600 uppercase">
+            Sticky Rail (300x600)
+          </span>
+          <div class="max-w-[200px]">
+            <p class="text-xs font-bold text-slate-800">High-RPM Sticky Sidebar Ad</p>
+            <p class="text-[11px] text-slate-500 mt-1">Stays in viewport for 100% of reader scroll time, commanding premium CPM bids.</p>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-16 border-t border-slate-200 bg-white py-8">
+    <div class="mx-auto max-w-7xl px-4 text-center text-xs text-slate-400 sm:px-6 lg:px-8">
+      <p>© 2026 RPMEngine • Built for Vercel Edge Hosting, GitHub Continuous Delivery, and AdSense Monetization.</p>
+      <div class="mt-2 flex justify-center gap-4 text-slate-500">
+        <a href="#" class="hover:text-emerald-600">Privacy Policy</a>
+        <a href="#" class="hover:text-emerald-600">Terms of Service</a>
+        <a href="#" class="hover:text-emerald-600">Ad Disclosure</a>
+        <a href="#" class="hover:text-emerald-600">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
