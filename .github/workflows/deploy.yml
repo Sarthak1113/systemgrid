@@ -1,0 +1,27 @@
+name: Quality Gate & Automated Deployment
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  audit-and-verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Editorial & SEO Quality Gate
+        run: node automation/publish-post.js
+
+      - name: Report Build Readiness
+        run: echo "All articles passed SEO, AEO, and Copywriting audits. Ready for Vercel edge build."
