@@ -57,6 +57,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Google Tag (immediately after <head>) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-TVCS773D"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());`,
+          }}
+        />
+
         {/* AdSense Publisher Script loads ONLY when a valid Publisher ID is provided */}
         {ADSENSE_ENABLED && (
           <Script
