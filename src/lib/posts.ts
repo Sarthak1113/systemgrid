@@ -50,11 +50,33 @@ export function getAllPosts(): PostMeta[] {
 }
 
 export function getPostBySlug(slug: string): Post | null {
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
-  if (!fs.existsSync(fullPath)) {
+  if (!fs.existsSync(postsDirectory)) {
     return null;
   }
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+
+  // 1. First attempt: Direct file match
+  const directPath = path.join(postsDirectory, `${slug}.md`);
+  let targetPath = fs.existsSync(directPath) ? directPath : null;
+
+  // 2. Second attempt: Search all posts for matching frontmatter slug
+  if (!targetPath) {
+    const fileNames = fs.readdirSync(postsDirectory).filter((f) => f.endsWith('.md'));
+    for (const fileName of fileNames) {
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const { data } = matter(fileContents);
+      if (data && (data.slug === slug || fileName.replace(/\.md$/, '') === slug)) {
+        targetPath = fullPath;
+        break;
+      }
+    }
+  }
+
+  if (!targetPath) {
+    return null;
+  }
+
+  const fileContents = fs.readFileSync(targetPath, 'utf8');
   const { data, content } = matter(fileContents);
 
   // Extract H2 and H3 headings for the Table of Contents
