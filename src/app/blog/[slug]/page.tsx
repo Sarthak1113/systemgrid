@@ -75,14 +75,12 @@ export default async function BlogPostPage({ params }: PageProps) {
   const htmlContent = renderMarkdown(post.content);
 
   return (
-    <>
+    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       {/* Search Engine & Answer Engine Structured Data (JSON-LD BreadcrumbList + Article Graph) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(postGraphSchema) }}
       />
-
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         {/* Top Leaderboard Ad Slot (Disabled until Publisher ID is active) */}
         <div className="mx-auto max-w-4xl mb-6">
           <AdUnit
@@ -246,6 +244,5 @@ export default async function BlogPostPage({ params }: PageProps) {
           />
         </div>
       </div>
-    </>
   );
 }

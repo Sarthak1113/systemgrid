@@ -54,14 +54,13 @@ export default async function CategoryPage({ params }: PageProps) {
   ]);
 
   return (
-    <>
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Search Engine BreadcrumbList Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Breadcrumbs */}
       <Breadcrumbs
         items={[
@@ -126,7 +125,6 @@ export default async function CategoryPage({ params }: PageProps) {
           </article>
         ))}
       </div>
-      </div>
-    </>
+    </div>
   );
 }

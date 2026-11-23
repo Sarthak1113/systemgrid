@@ -114,14 +114,12 @@ export default async function AuthorPage({ params }: PageProps) {
   };
 
   return (
-    <>
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Schema.org Person & ProfilePage JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(authorSchema) }}
       />
-
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Breadcrumb Navigation */}
         <Breadcrumbs
           items={[
@@ -239,6 +237,5 @@ export default async function AuthorPage({ params }: PageProps) {
           </div>
         </section>
       </div>
-    </>
-  );
+    );
 }
