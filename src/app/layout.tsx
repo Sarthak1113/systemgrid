@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
   openGraph: {
     title: 'SystemGrid | Cloud Architecture & DevOps Intelligence',
     description: 'Verified engineering benchmarks, distributed systems architecture, and cloud cost optimization playbooks.',

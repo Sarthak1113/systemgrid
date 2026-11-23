@@ -6,7 +6,7 @@ import { AdUnit } from '../components/AdUnit';
 export default function HomePage() {
   const posts = getAllPosts();
   const pillarPost = posts.find((p) => p.isPillar) || posts[0];
-  const spokePosts = posts.filter((p) => !p.isPillar);
+  const spokePosts = posts.filter((p) => p.slug !== pillarPost?.slug);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -39,7 +39,7 @@ export default function HomePage() {
           <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-xs transition-all hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
             <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
               <span className="rounded-full bg-[#047857] px-3 py-0.5 text-xs font-bold text-white uppercase tracking-wider">
-                Core Pillar Guide
+                {pillarPost.isPillar ? 'Core Pillar Guide' : 'Featured Analysis'}
               </span>
               <span className="text-xs text-slate-400">
                 {pillarPost.readingTime} • Updated {pillarPost.updatedAt}
@@ -80,7 +80,7 @@ export default function HomePage() {
                 href={`/blog/${pillarPost.slug}`}
                 className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-[#047857] transition-colors dark:bg-white dark:text-slate-900 dark:hover:bg-[#047857] dark:hover:text-white"
               >
-                Read Master Guide →
+                {pillarPost.isPillar ? 'Read Master Guide →' : 'Read Article →'}
               </Link>
             </div>
           </div>
@@ -92,10 +92,10 @@ export default function HomePage() {
         <div className="mb-6 flex items-center justify-between">
           <div>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-              Topic Cluster: Implementation Spokes
+              Recent Engineering Guides &amp; Research
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Technical walkthroughs and performance benchmarks connected to the master playbook.
+              Verified technical walkthroughs, security disclosures, and performance benchmarks.
             </p>
           </div>
         </div>

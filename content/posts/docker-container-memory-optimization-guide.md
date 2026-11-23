@@ -18,7 +18,7 @@ schemaType: "TechArticle"
 
 Reducing Docker container memory consumption requires stripping unused build dependencies with multi-stage builds, setting explicit runtime heap limits (`--max-old-space-size` for Node.js or `GOMEMLIMIT` for Go), and switching from bloated Linux base distributions to minimal Distroless or Alpine runtimes. These three optimizations drop baseline idle container RAM from 450MB to under 85MB per replica, allowing cloud clusters to pack 3x more service instances onto identical hardware nodes.
 
-This guide is an implementation spoke of our [Enterprise Cloud Architecture Playbook](/blog/enterprise-cloud-architecture-playbook). If you are architecting a multi-node cluster, review the baseline topology guide first.
+This guide provides the foundational blueprints for optimizing memory efficiency and slashing cloud infrastructure bills across containerized clusters.
 
 ## Why Default Docker Images Waste Cloud Compute
 
@@ -32,8 +32,6 @@ In Kubernetes and AWS ECS, cluster schedulers allocate EC2 or Fargate nodes base
 | **Idle Process Memory** | 420 MB | 78 MB | **-81% baseline RAM** |
 | **Startup / Cold Launch Time** | 4.8 seconds | 0.9 seconds | **81% faster autoscaling** |
 | **CVE Vulnerability Count** | 48 packages | 0 known vulnerabilities | **High security posture** |
-
-For workloads requiring near-zero startup delay where even minimal containers are too slow, review our benchmark study on [Cloudflare Workers vs AWS Lambda@Edge](/blog/cloudflare-workers-vs-aws-lambda-edge-benchmarks).
 
 ## Step 1: Implement Multi-Stage Production Builds
 
