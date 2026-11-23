@@ -5,9 +5,9 @@ description: "Empirical benchmark tests comparing V8 isolate runtimes against co
 publishedAt: "2026-11-23"
 updatedAt: "2026-11-23"
 author:
-  name: "Marcus Vance"
-  title: "Principal Infrastructure Architect"
-  avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
+  name: "Meera Negi"
+  title: "Lead Tech & Systems Writer at SystemGrid"
+  avatar: "/authors/meera-negi.png"
 category: "Edge Computing"
 tags: ["Edge Computing", "Serverless", "AWS Lambda", "Cloudflare Workers", "Performance"]
 readingTime: "7 min read"

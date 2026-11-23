@@ -124,25 +124,25 @@ export default async function BlogPostPage({ params }: PageProps) {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.2] sm:leading-tight break-words">
             {post.title}
           </h1>
 
-          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
             {post.description}
           </p>
 
-          <div className="mt-6 flex items-center gap-3 border-y border-slate-100 py-3 dark:border-slate-800">
+          <div className="mt-5 sm:mt-6 flex items-center gap-3 border-y border-slate-100 py-3 dark:border-slate-800">
             <img
               src={post.author.avatar}
               alt={post.author.name}
-              className="h-10 w-10 rounded-full object-cover ring-2 ring-[#047857]/30"
+              className="h-10 w-10 sm:h-11 sm:w-11 rounded-full object-cover ring-2 ring-[#047857]/30 shrink-0"
             />
-            <div>
-              <p className="text-xs font-bold text-slate-900 dark:text-slate-100">
+            <div className="min-w-0 flex-1">
+              <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 truncate">
                 {post.author.name}
               </p>
-              <p className="text-[11px] text-slate-400">
+              <p className="text-[11px] text-slate-400 truncate">
                 {post.author.title} • Last audited {post.updatedAt}
               </p>
             </div>

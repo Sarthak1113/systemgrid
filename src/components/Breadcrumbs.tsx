@@ -12,7 +12,7 @@ interface BreadcrumbsProps {
 
 export function Breadcrumbs({ items }: BreadcrumbsProps) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-4">
+    <nav aria-label="Breadcrumb" className="mb-3 sm:mb-4">
       <ol className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
         <li>
           <Link
@@ -27,18 +27,19 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
           return (
             <React.Fragment key={item.url}>
               <li className="text-slate-300 dark:text-slate-600">/</li>
-              <li>
+              <li className={isLast ? "max-w-[150px] sm:max-w-xs md:max-w-md truncate" : ""}>
                 {isLast ? (
                   <span
                     aria-current="page"
-                    className="max-w-[260px] truncate font-medium text-slate-700 sm:max-w-md dark:text-slate-300"
+                    className="truncate font-medium text-slate-700 dark:text-slate-300 block"
+                    title={item.name}
                   >
                     {item.name}
                   </span>
                 ) : (
                   <Link
                     href={item.url}
-                    className="transition-colors hover:text-slate-800 dark:hover:text-slate-200"
+                    className="transition-colors hover:text-slate-800 dark:hover:text-slate-200 whitespace-nowrap"
                   >
                     {item.name}
                   </Link>
