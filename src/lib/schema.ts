@@ -43,7 +43,7 @@ export function generateArticleSchema(post: Post, siteUrl: string = 'https://sys
       url: siteUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteUrl}/systemgrid-logo-light.svg`,
+        url: `${siteUrl}/logo-light.png`,
       },
     },
     articleSection: post.category,
@@ -109,7 +109,7 @@ export function generateBlogPostGraphSchema(post: Post, siteUrl: string = 'https
           url: siteUrl,
           logo: {
             '@type': 'ImageObject',
-            url: `${siteUrl}/systemgrid-logo-light.svg`,
+            url: `${siteUrl}/logo-light.png`,
           },
         },
         articleSection: post.category,

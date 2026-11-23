@@ -10,23 +10,25 @@ interface LogoProps {
 export function Logo({ className = '', width = 180, height = 34 }: LogoProps) {
   return (
     <div className={`relative inline-flex items-center ${className}`}>
-      {/* SystemGrid Light Mode Vector SVG Logo */}
+      {/* Light Mode Logo */}
       <img
-        src="/systemgrid-logo-light.svg"
+        src="/logo-light.png"
         alt="SystemGrid - Cloud Architecture & Systems Engineering Intelligence"
         width={width}
         height={height}
+        decoding="async"
+        fetchPriority="high"
         className="block dark:hidden h-8 w-auto object-contain"
-        fetchPriority="high"
       />
-      {/* SystemGrid Dark Mode Vector SVG Logo */}
+      {/* Dark Mode Logo */}
       <img
-        src="/systemgrid-logo-dark.svg"
+        src="/logo-dark.png"
         alt="SystemGrid - Cloud Architecture & Systems Engineering Intelligence"
         width={width}
         height={height}
-        className="hidden dark:block h-8 w-auto object-contain"
+        decoding="async"
         fetchPriority="high"
+        className="hidden dark:block h-8 w-auto object-contain"
       />
     </div>
   );
