@@ -60,21 +60,21 @@ export default function HomePage() {
             </p>
 
             <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-5 dark:border-slate-800">
-              <div className="flex items-center gap-3">
+              <Link href="/author/meera-negi" className="flex items-center gap-3 group">
                 <img
                   src={pillarPost.author.avatar}
                   alt={pillarPost.author.name}
-                  className="h-9 w-9 rounded-full object-cover ring-2 ring-[#047857]/30"
+                  className="h-9 w-9 rounded-full object-cover ring-2 ring-[#047857]/30 group-hover:ring-[#047857] transition-all"
                 />
                 <div>
-                  <p className="text-xs font-bold text-slate-800 dark:text-slate-200">
+                  <p className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-[#047857] dark:group-hover:text-emerald-400 transition-colors">
                     {pillarPost.author.name}
                   </p>
                   <p className="text-[11px] text-slate-400">
                     {pillarPost.author.title}
                   </p>
                 </div>
-              </div>
+              </Link>
 
               <Link
                 href={`/blog/${pillarPost.slug}`}

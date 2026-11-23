@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
+import { Navbar } from '../components/Navbar';
 import { Logo } from '../components/Logo';
 import './globals.css';
 
@@ -65,31 +66,8 @@ export default function RootLayout({
         )}
       </head>
       <body className="min-h-screen bg-slate-50 text-slate-800 antialiased selection:bg-[#047857] selection:text-white dark:bg-slate-950 dark:text-slate-100 flex flex-col">
-        {/* Top Header Navigation */}
-        <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/90">
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-            <Link href="/" className="flex items-center gap-2 group transition-opacity hover:opacity-90">
-              <Logo width={160} height={30} />
-            </Link>
-
-            <div className="flex items-center gap-5">
-              <Link
-                href="/"
-                className="text-xs font-semibold text-slate-600 hover:text-[#047857] dark:text-slate-300 dark:hover:text-emerald-400 transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-[#047857] px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-[#065f46] transition-colors"
-              >
-                Contact
-              </Link>
-            </div>
-
-
-          </div>
-        </header>
+        {/* Dynamic Navigation Bar (Home hides on homepage, appears on subpages) */}
+        <Navbar />
 
         {/* Main Content Area */}
         <main className="flex-1">{children}</main>
@@ -100,30 +78,24 @@ export default function RootLayout({
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
               <div className="md:col-span-2">
                 <Logo width={150} height={28} />
-                <p className="mt-3 text-xs text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed">
-                  Independent technical publishing platform engineering verifiable benchmarks, distributed architecture guides, and cloud infrastructure optimization blueprints.
-                </p>
               </div>
 
               <div>
                 <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider dark:text-slate-200 mb-3">
-                  Topic Hubs
+                  Contact Us
                 </h4>
                 <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
                   <li>
-                    <Link href="/blog/enterprise-cloud-architecture-playbook" className="hover:text-[#047857] dark:hover:text-emerald-400">
-                      Multi-Region Cloud Architecture
-                    </Link>
+                    <a
+                      href="mailto:contact@systemgrid.dev"
+                      className="font-medium text-slate-900 hover:text-[#047857] dark:text-slate-200 dark:hover:text-emerald-400 transition-colors"
+                    >
+                      contact@systemgrid.dev
+                    </a>
                   </li>
-                  <li>
-                    <Link href="/blog/docker-container-memory-optimization-guide" className="hover:text-[#047857] dark:hover:text-emerald-400">
-                      Docker Memory & Cost Optimization
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/blog/cloudflare-workers-vs-aws-lambda-edge-benchmarks" className="hover:text-[#047857] dark:hover:text-emerald-400">
-                      Edge Compute Latency Benchmarks
-                    </Link>
+                  <li className="pt-1">
+                    <span className="font-semibold text-slate-800 dark:text-slate-200 block mb-0.5">Address:</span>
+                    <span>Babebir, Nuapada, Odisha</span>
                   </li>
                 </ul>
               </div>
@@ -158,7 +130,13 @@ export default function RootLayout({
             </div>
 
             <div className="border-t border-slate-100 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400 dark:border-slate-800">
-              <p>© 2026 SystemGrid. All rights reserved.</p>
+              <p className="flex items-center gap-2">
+                <span>© 2026 SystemGrid. All rights reserved.</span>
+                <span>•</span>
+                <Link href="/sitemap.xml" className="hover:text-[#047857] dark:hover:text-emerald-400 underline underline-offset-2 transition-colors">
+                  Sitemap
+                </Link>
+              </p>
             </div>
           </div>
         </footer>

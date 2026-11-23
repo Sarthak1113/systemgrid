@@ -133,15 +133,19 @@ export default async function BlogPostPage({ params }: PageProps) {
           </p>
 
           <div className="mt-5 sm:mt-6 flex items-center gap-3 border-y border-slate-100 py-3 dark:border-slate-800">
-            <img
-              src={post.author.avatar}
-              alt={post.author.name}
-              className="h-10 w-10 sm:h-11 sm:w-11 rounded-full object-cover ring-2 ring-[#047857]/30 shrink-0"
-            />
+            <Link href="/author/meera-negi" className="shrink-0 group">
+              <img
+                src={post.author.avatar}
+                alt={post.author.name}
+                className="h-10 w-10 sm:h-11 sm:w-11 rounded-full object-cover ring-2 ring-[#047857]/30 group-hover:ring-[#047857] transition-all"
+              />
+            </Link>
             <div className="min-w-0 flex-1">
-              <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 truncate">
-                {post.author.name}
-              </p>
+              <Link href="/author/meera-negi" className="hover:underline">
+                <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 truncate hover:text-[#047857] dark:hover:text-emerald-400 transition-colors">
+                  {post.author.name}
+                </p>
+              </Link>
               <p className="text-[11px] text-slate-400 truncate">
                 {post.author.title} • Last audited {post.updatedAt}
               </p>

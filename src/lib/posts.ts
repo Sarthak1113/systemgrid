@@ -11,6 +11,58 @@ export interface PostAuthor {
   avatar: string;
 }
 
+export interface AuthorProfile {
+  name: string;
+  slug: string;
+  title: string;
+  avatar: string;
+  bio: string;
+  expertise: string[];
+  role: string;
+  schemaType: 'Person';
+}
+
+export const PRIMARY_AUTHOR: AuthorProfile = {
+  name: 'Meera Negi',
+  slug: 'meera-negi',
+  title: 'Lead Tech & Systems Writer at SystemGrid',
+  avatar: '/authors/meera-negi.png',
+  bio: "Meera Negi is Lead Technology Writer and Technical Editor at SystemGrid.dev. Her areas of expertise are cloud infrastructure, Linux, DevOps automation, web security and incident analysis. She's previously worked in systems analysis and technical documentation for enterprise SaaS teams and is an active contributor to open source infrastructure and security guides.",
+  expertise: [
+    'Cloud Infrastructure',
+    'Linux Systems',
+    'DevOps Automation',
+    'Web Security',
+    'Incident Analysis',
+    'Enterprise SaaS Documentation',
+    'Container Optimization',
+  ],
+  role: 'Lead Tech & Systems Writer at SystemGrid',
+  schemaType: 'Person',
+};
+
+export function getAuthorBySlug(slug: string): AuthorProfile | null {
+  const normalized = slug.toLowerCase();
+  if (normalized === 'meera-negi' || normalized === 'meera-nair' || normalized === 'meera') {
+    return PRIMARY_AUTHOR;
+  }
+  return null;
+}
+
+export function getPostsByAuthor(authorSlugOrName: string): PostMeta[] {
+  const posts = getAllPosts();
+  const normalized = authorSlugOrName.toLowerCase();
+  return posts.filter((p) => {
+    const postAuthorName = (p.author?.name || '').toLowerCase();
+    return (
+      postAuthorName.includes('meera') ||
+      postAuthorName.includes('negi') ||
+      postAuthorName.includes('nair') ||
+      normalized.includes('meera')
+    );
+  });
+}
+
 export interface PostMeta {
   title: string;
   slug: string;
