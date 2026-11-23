@@ -73,7 +73,13 @@ export function ContactForm() {
           Thank you! Your message has been sent.
         </h3>
         <p className="mx-auto mt-2 max-w-md text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-          Our editorial desk has received your submission. We review inquiries daily and will get back to you at <span className="font-semibold text-slate-800 dark:text-slate-200">{formData.email}</span>.
+          Our editorial desk has received your submission. We review inquiries daily and will respond from{' '}
+          <a
+            href="mailto:contact@systemgrid.dev"
+            className="font-semibold text-[#047857] hover:underline dark:text-emerald-400"
+          >
+            contact@systemgrid.dev
+          </a>.
         </p>
         <button
           onClick={handleReset}
