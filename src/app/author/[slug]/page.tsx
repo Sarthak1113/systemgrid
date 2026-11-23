@@ -67,10 +67,31 @@ export default async function AuthorPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@type': 'BreadcrumbList',
+        '@id': `${siteUrl}/author/${author.slug}#breadcrumb`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: siteUrl,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Authors',
+            item: `${siteUrl}/author/${author.slug}`,
+          },
+        ],
+      },
+      {
         '@type': 'ProfilePage',
         '@id': `${siteUrl}/author/${author.slug}`,
         url: `${siteUrl}/author/${author.slug}`,
         name: `${author.name} Author Profile | SystemGrid`,
+        breadcrumb: {
+          '@id': `${siteUrl}/author/${author.slug}#breadcrumb`,
+        },
         mainEntity: {
           '@id': `${siteUrl}/author/${author.slug}#person`,
         },

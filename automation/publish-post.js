@@ -99,6 +99,11 @@ function auditArticle(filePath) {
     }
   }
 
+  // 6. BreadcrumbList Structured Data Validation
+  if (!data.category || !data.slug || !data.title) {
+    errors.push(`BreadcrumbList schema generation failed: Missing category, slug, or title.`);
+  }
+
   return { file: path.basename(filePath), errors, warnings };
 }
 

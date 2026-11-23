@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getPostBySlug, getAllPosts, getRelatedPosts } from '../../../lib/posts';
-import { generateArticleSchema, generateBreadcrumbSchema } from '../../../lib/schema';
+import { generateBlogPostGraphSchema } from '../../../lib/schema';
 import { renderMarkdown, slugify } from '../../../lib/markdown';
 import { AdUnit } from '../../../components/AdUnit';
 import { TableOfContents } from '../../../components/TableOfContents';
@@ -70,25 +70,16 @@ export default async function BlogPostPage({ params }: PageProps) {
   const relatedPosts = getRelatedPosts(post.slug, post.cluster, 3);
 
   const siteUrl = 'https://systemgrid.dev';
-  const articleSchema = generateArticleSchema(post, siteUrl);
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: siteUrl },
-    { name: post.category, url: `${siteUrl}/category/${post.category.toLowerCase().replace(/\s+/g, '-')}` },
-    { name: post.title, url: `${siteUrl}/blog/${post.slug}` },
-  ]);
+  const postGraphSchema = generateBlogPostGraphSchema(post, siteUrl);
 
   const htmlContent = renderMarkdown(post.content);
 
   return (
     <>
-      {/* Search Engine & Answer Engine Structured Data (JSON-LD) */}
+      {/* Search Engine & Answer Engine Structured Data (JSON-LD BreadcrumbList + Article Graph) */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(postGraphSchema) }}
       />
 
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">

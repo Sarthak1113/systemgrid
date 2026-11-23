@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllCategories, getPostsByCategory } from '../../../lib/posts';
+import { generateBreadcrumbSchema } from '../../../lib/schema';
 import { Breadcrumbs } from '../../../components/Breadcrumbs';
 
 interface PageProps {
@@ -45,9 +46,22 @@ export default async function CategoryPage({ params }: PageProps) {
   }
 
   const posts = getPostsByCategory(category);
+  const siteUrl = 'https://systemgrid.dev';
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: siteUrl },
+    { name: currentCat.name, url: `${siteUrl}/category/${category}` },
+  ]);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <>
+      {/* Search Engine BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Breadcrumbs */}
       <Breadcrumbs
         items={[
@@ -112,6 +126,6 @@ export default async function CategoryPage({ params }: PageProps) {
           </article>
         ))}
       </div>
-    </div>
+    </>
   );
 }
