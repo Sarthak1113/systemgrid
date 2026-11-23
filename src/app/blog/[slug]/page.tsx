@@ -115,11 +115,11 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <Link
               href={`/category/${slugify(post.category)}`}
-              className="rounded-full bg-emerald-50 px-3 py-0.5 text-xs font-bold text-[#047857] border border-emerald-200/80 hover:bg-emerald-100 dark:bg-emerald-950 dark:text-emerald-300 dark:border-emerald-800 transition-colors"
+              className="rounded-full bg-emerald-50 px-3 py-0.5 text-xs font-bold font-mono text-[#047857] border border-emerald-200/80 hover:bg-emerald-100 dark:bg-emerald-950 dark:text-emerald-300 dark:border-emerald-800 transition-colors"
             >
               {post.category}
             </Link>
-            <span className="text-xs text-slate-400">
+            <span className="text-xs text-slate-400 font-mono">
               {post.readingTime} • Published {post.publishedAt}
             </span>
           </div>
@@ -146,7 +146,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   {post.author.name}
                 </p>
               </Link>
-              <p className="text-[11px] text-slate-400 truncate">
+              <p className="text-[11px] text-slate-400 truncate font-mono">
                 {post.author.title} • Last audited {post.updatedAt}
               </p>
             </div>

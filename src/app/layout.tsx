@@ -1,9 +1,30 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
+import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import { Navbar } from '../components/Navbar';
 import { Logo } from '../components/Logo';
 import './globals.css';
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  variable: '--font-space-grotesk',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+});
 
 const ADSENSE_PUB_ID = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID || '';
 const ADSENSE_ENABLED = Boolean(ADSENSE_PUB_ID && ADSENSE_PUB_ID.startsWith('ca-pub-'));
@@ -55,7 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
       <head>
         {/* Google Tag (immediately after <head>) */}
         <script
@@ -79,7 +100,7 @@ export default function RootLayout({
           />
         )}
       </head>
-      <body className="min-h-screen bg-slate-50 text-slate-800 antialiased selection:bg-[#047857] selection:text-white dark:bg-slate-950 dark:text-slate-100 flex flex-col">
+      <body className="min-h-screen bg-slate-50 font-sans text-slate-800 antialiased selection:bg-[#047857] selection:text-white dark:bg-slate-950 dark:text-slate-100 flex flex-col">
         {/* Dynamic Navigation Bar (Home hides on homepage, appears on subpages) */}
         <Navbar />
 

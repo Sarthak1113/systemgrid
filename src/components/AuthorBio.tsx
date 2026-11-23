@@ -28,7 +28,7 @@ export function AuthorBio({ author, updatedAt }: AuthorBioProps) {
                 Written by {author.name}
               </h4>
             </Link>
-            <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-[10px] font-bold text-[#047857] border border-emerald-200/80 dark:bg-emerald-950 dark:text-emerald-300">
+            <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-[10px] font-bold font-mono text-[#047857] border border-emerald-200/80 dark:bg-emerald-950 dark:text-emerald-300">
               Verified Specialist
             </span>
           </div>
@@ -36,7 +36,7 @@ export function AuthorBio({ author, updatedAt }: AuthorBioProps) {
             {author.title} • Specializing in cloud infrastructure, Linux, DevOps automation, web security and incident analysis.
           </p>
           <div className="mt-2.5 flex flex-wrap items-center justify-between gap-2 border-t border-slate-200/60 pt-2 dark:border-slate-800/80">
-            <p className="text-[11px] text-slate-400 dark:text-slate-500">
+            <p className="text-[11px] text-slate-400 dark:text-slate-500 font-mono">
               Peer-reviewed and updated on {updatedAt}
             </p>
             <Link

@@ -78,10 +78,10 @@ export default async function CategoryPage({ params }: PageProps) {
           >
             <div>
               <div className="flex items-center justify-between text-[11px] text-slate-400 mb-2">
-                <span className="font-semibold text-[#047857] uppercase tracking-wide">
+                <span className="font-semibold text-[#047857] uppercase tracking-wide font-mono">
                   {post.category}
                 </span>
-                <span>{post.readingTime}</span>
+                <span className="font-mono">{post.readingTime}</span>
               </div>
 
               <h2 className="text-lg font-bold text-slate-900 dark:text-white leading-snug">
@@ -99,7 +99,7 @@ export default async function CategoryPage({ params }: PageProps) {
             </div>
 
             <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800">
-              <span className="text-[11px] font-medium text-slate-400">
+              <span className="text-[11px] font-medium text-slate-400 font-mono">
                 {post.publishedAt}
               </span>
               <Link

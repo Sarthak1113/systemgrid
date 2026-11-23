@@ -119,7 +119,7 @@ export default async function AuthorPage({ params }: PageProps) {
             />
 
             <div className="flex-1">
-              <div className="flex flex-wrap items-center gap-2 mb-2">
+              <div className="flex flex-wrap items-center gap-2 mb-2 font-mono">
                 <span className="rounded-full bg-emerald-50 px-3 py-0.5 text-xs font-bold text-[#047857] border border-emerald-200/80 dark:bg-emerald-950 dark:text-emerald-300">
                   Verified Specialist
                 </span>
@@ -148,7 +148,7 @@ export default async function AuthorPage({ params }: PageProps) {
                 {author.expertise.map((item) => (
                   <span
                     key={item}
-                    className="rounded-lg bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-700 border border-slate-200/70 dark:bg-slate-800/80 dark:text-slate-300 dark:border-slate-700"
+                    className="rounded-lg bg-slate-50 px-2.5 py-1 text-[11px] font-mono font-medium text-slate-700 border border-slate-200/70 dark:bg-slate-800/80 dark:text-slate-300 dark:border-slate-700"
                   >
                     {item}
                   </span>
@@ -181,11 +181,11 @@ export default async function AuthorPage({ params }: PageProps) {
                   <div className="flex items-center justify-between text-[11px] text-slate-400 mb-2">
                     <Link
                       href={`/category/${slugify(post.category)}`}
-                      className="font-semibold text-[#047857] uppercase tracking-wide hover:underline"
+                      className="font-semibold text-[#047857] uppercase tracking-wide hover:underline font-mono"
                     >
                       {post.category}
                     </Link>
-                    <span>{post.readingTime}</span>
+                    <span className="font-mono">{post.readingTime}</span>
                   </div>
 
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-snug">
@@ -203,7 +203,7 @@ export default async function AuthorPage({ params }: PageProps) {
                 </div>
 
                 <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800">
-                  <span className="text-[11px] font-medium text-slate-400">
+                  <span className="text-[11px] font-medium text-slate-400 font-mono">
                     Published {post.publishedAt}
                   </span>
                   <Link

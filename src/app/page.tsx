@@ -38,10 +38,10 @@ export default function HomePage() {
         <section className="my-12">
           <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-xs transition-all hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
             <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <span className="rounded-full bg-[#047857] px-3 py-0.5 text-xs font-bold text-white uppercase tracking-wider">
+              <span className="rounded-full bg-[#047857] px-3 py-0.5 text-xs font-bold font-mono text-white uppercase tracking-wider">
                 {pillarPost.isPillar ? 'Core Pillar Guide' : 'Featured Analysis'}
               </span>
-              <span className="text-xs text-slate-400">
+              <span className="text-xs text-slate-400 font-mono">
                 {pillarPost.readingTime} • Updated {pillarPost.updatedAt}
               </span>
             </div>
@@ -110,11 +110,11 @@ export default function HomePage() {
                 <div className="flex items-center justify-between text-[11px] text-slate-400 mb-2">
                   <Link
                     href={`/category/${slugify(spoke.category)}`}
-                    className="font-semibold text-[#047857] uppercase tracking-wide hover:underline"
+                    className="font-semibold text-[#047857] uppercase tracking-wide hover:underline font-mono"
                   >
                     {spoke.category}
                   </Link>
-                  <span>{spoke.readingTime}</span>
+                  <span className="font-mono">{spoke.readingTime}</span>
                 </div>
 
                 <h4 className="text-lg font-bold text-slate-900 dark:text-white leading-snug">
@@ -132,7 +132,7 @@ export default function HomePage() {
               </div>
 
               <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800">
-                <span className="text-[11px] font-medium text-slate-400">
+                <span className="text-[11px] font-medium text-slate-400 font-mono">
                   Published {spoke.publishedAt}
                 </span>
                 <Link

@@ -8,6 +8,11 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-space-grotesk)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+      },
       colors: {
         brand: {
           DEFAULT: '#047857',
@@ -42,11 +47,13 @@ module.exports = {
               },
             },
             h1: {
+              fontFamily: 'var(--font-space-grotesk), sans-serif',
               color: '#0f172a',
-              fontWeight: '800',
+              fontWeight: '700',
               letterSpacing: '-0.025em',
             },
             h2: {
+              fontFamily: 'var(--font-space-grotesk), sans-serif',
               color: '#0f172a',
               fontWeight: '700',
               letterSpacing: '-0.02em',
@@ -54,9 +61,18 @@ module.exports = {
               marginBottom: '0.8em',
             },
             h3: {
+              fontFamily: 'var(--font-space-grotesk), sans-serif',
               color: '#1e293b',
               fontWeight: '600',
               marginTop: '1.6em',
+            },
+            h4: {
+              fontFamily: 'var(--font-space-grotesk), sans-serif',
+              color: '#1e293b',
+              fontWeight: '600',
+            },
+            'code, pre, kbd': {
+              fontFamily: 'var(--font-jetbrains-mono), monospace',
             },
           },
         },
