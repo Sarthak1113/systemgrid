@@ -136,7 +136,7 @@ function runAuditAndPublish() {
     process.exit(1);
   }
 
-  console.log('\n🚀 All 3 sample articles passed SEO, AEO, and Copywriting audits!');
+  console.log(`\n🚀 All ${files.length} articles passed SEO, AEO, and Copywriting audits!`);
   console.log('Ready for Git commit and Vercel edge deployment.');
 }
 
