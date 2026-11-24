@@ -7,7 +7,7 @@ import React, { useEffect, useRef } from 'react';
  * Currently DISABLED until Google AdSense Publisher ID is provided.
  * When disabled, this component renders null so no placeholder boxes or layout shifts appear.
  */
-const ADSENSE_PUB_ID = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID || '';
+const ADSENSE_PUB_ID = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID || 'ca-pub-1324809398916676';
 const ADSENSE_ENABLED = Boolean(ADSENSE_PUB_ID && ADSENSE_PUB_ID.startsWith('ca-pub-'));
 
 interface AdUnitProps {
@@ -27,18 +27,21 @@ export function AdUnit({
 }: AdUnitProps) {
   const adRef = useRef<HTMLModElement | null>(null);
 
+  const isValidSlot = Boolean(slotId && /^\d+$/.test(slotId));
+
   useEffect(() => {
-    if (ADSENSE_ENABLED && typeof window !== 'undefined') {
+    if (ADSENSE_ENABLED && isValidSlot && typeof window !== 'undefined') {
       try {
         ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
       } catch (e) {
         console.warn('AdSense slot execution error:', e);
       }
     }
-  }, []);
+  }, [isValidSlot]);
 
-  // Return null when AdSense is disabled: zero DOM clutter, zero placeholders
-  if (!ADSENSE_ENABLED) {
+  // Return null when AdSense is disabled or slotId is not yet a configured numeric ID
+  // This allows Auto Ads to run cleanly from layout without rendering unconfigured empty boxes
+  if (!ADSENSE_ENABLED || !isValidSlot) {
     return null;
   }
 

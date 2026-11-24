@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
-const ADSENSE_PUB_ID = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID || '';
+const ADSENSE_PUB_ID = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID || 'ca-pub-1324809398916676';
 const ADSENSE_ENABLED = Boolean(ADSENSE_PUB_ID && ADSENSE_PUB_ID.startsWith('ca-pub-'));
 
 export const metadata: Metadata = {
@@ -89,14 +89,12 @@ export default function RootLayout({
           }}
         />
 
-        {/* AdSense Publisher Script loads ONLY when a valid Publisher ID is provided */}
+        {/* AdSense Publisher Script */}
         {ADSENSE_ENABLED && (
-          <Script
-            id="adsense-client"
+          <script
             async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUB_ID}`}
             crossOrigin="anonymous"
-            strategy="afterInteractive"
           />
         )}
       </head>
