@@ -17,6 +17,7 @@ export interface AuthorProfile {
   title: string;
   avatar: string;
   bio: string;
+  email?: string;
   expertise: string[];
   role: string;
   schemaType: 'Person';
@@ -28,6 +29,7 @@ export const PRIMARY_AUTHOR: AuthorProfile = {
   title: 'Lead Tech & Systems Writer at SystemGrid',
   avatar: '/authors/meera-negi.png',
   bio: "Meera Negi is Lead Technology Writer and Technical Editor at SystemGrid.dev. Her areas of expertise are cloud infrastructure, Linux, DevOps automation, web security and incident analysis. She's previously worked in systems analysis and technical documentation for enterprise SaaS teams and is an active contributor to open source infrastructure and security guides.",
+  email: 'meeraegi@systemgrid.dev',
   expertise: [
     'Cloud Infrastructure',
     'Linux Systems',

@@ -101,6 +101,7 @@ export default async function AuthorPage({ params }: PageProps) {
         '@id': `${siteUrl}/author/${author.slug}#person`,
         name: author.name,
         jobTitle: author.title,
+        email: author.email || 'meeraegi@systemgrid.dev',
         worksFor: {
           '@type': 'Organization',
           name: 'SystemGrid',
@@ -172,6 +173,19 @@ export default async function AuthorPage({ params }: PageProps) {
                     {item}
                   </span>
                 ))}
+              </div>
+
+              {/* Direct Author Contact (Author Page Only) */}
+              <div className="mt-4 flex items-center gap-2">
+                <a
+                  href={`mailto:${author.email || 'meeraegi@systemgrid.dev'}`}
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200/90 bg-slate-50/80 px-3.5 py-1.5 text-xs font-mono font-medium text-slate-700 hover:border-[#047857]/60 hover:text-[#047857] transition-all dark:border-slate-800 dark:bg-slate-800/80 dark:text-slate-300 dark:hover:text-emerald-400"
+                >
+                  <svg className="h-4 w-4 text-[#047857] dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>{author.email || 'meeraegi@systemgrid.dev'}</span>
+                </a>
               </div>
             </div>
           </div>
