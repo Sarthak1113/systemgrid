@@ -109,13 +109,39 @@ export default function RootLayout({
         <footer className="border-t border-slate-200 bg-white py-12 dark:border-slate-800 dark:bg-slate-900">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-              <div className="md:col-span-2">
+              <div>
                 <Logo width={150} height={28} />
+                <p className="mt-3 text-xs text-slate-500 dark:text-slate-400 leading-relaxed max-w-xs">
+                  Independent engineering benchmarks, cloud architecture playbooks, and frontier systems intelligence.
+                </p>
               </div>
 
               <div>
                 <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider dark:text-slate-200 mb-3">
-                  Contact Us
+                  Company &amp; Story
+                </h4>
+                <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
+                  <li>
+                    <Link href="/about" className="font-semibold text-slate-900 hover:text-[#047857] dark:text-slate-200 dark:hover:text-emerald-400 transition-colors">
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/author/meera-negi" className="hover:text-[#047857] dark:hover:text-emerald-400 transition-colors">
+                      Editorial Lead (Meera Negi)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/contact" className="hover:text-[#047857] dark:hover:text-emerald-400 transition-colors">
+                      Contact Editorial Desk
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider dark:text-slate-200 mb-3">
+                  Contact Desk
                 </h4>
                 <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
                   <li>
@@ -127,7 +153,7 @@ export default function RootLayout({
                     </a>
                   </li>
                   <li className="pt-1">
-                    <span className="font-semibold text-slate-800 dark:text-slate-200 block mb-0.5">Address:</span>
+                    <span className="font-semibold text-slate-800 dark:text-slate-200 block mb-0.5">Location:</span>
                     <span>Babebir, Nuapada, Odisha</span>
                   </li>
                 </ul>
@@ -135,12 +161,12 @@ export default function RootLayout({
 
               <div>
                 <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider dark:text-slate-200 mb-3">
-                  Policy & Compliance
+                  Policy &amp; Compliance
                 </h4>
                 <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
                   <li>
                     <Link href="/privacy-policy" className="hover:text-[#047857] dark:hover:text-emerald-400">
-                      Privacy Policy & Cookies
+                      Privacy Policy &amp; Cookies
                     </Link>
                   </li>
                   <li>
@@ -155,7 +181,7 @@ export default function RootLayout({
                   </li>
                   <li>
                     <Link href="/about" className="hover:text-[#047857] dark:hover:text-emerald-400">
-                      Editorial Integrity & Verification
+                      Editorial Integrity &amp; Verification
                     </Link>
                   </li>
                 </ul>
