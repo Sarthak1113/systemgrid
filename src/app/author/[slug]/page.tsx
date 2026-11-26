@@ -13,7 +13,6 @@ export const dynamic = 'force-static';
 
 export async function generateStaticParams() {
   return [
-    { slug: 'meera-nair' },
     { slug: 'meera-negi' },
   ];
 }

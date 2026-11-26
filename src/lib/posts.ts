@@ -45,7 +45,7 @@ export const PRIMARY_AUTHOR: AuthorProfile = {
 
 export function getAuthorBySlug(slug: string): AuthorProfile | null {
   const normalized = slug.toLowerCase();
-  if (normalized === 'meera-negi' || normalized === 'meera-nair' || normalized === 'meera') {
+  if (normalized === 'meera-negi' || normalized === 'meera') {
     return PRIMARY_AUTHOR;
   }
   return null;
@@ -59,7 +59,6 @@ export function getPostsByAuthor(authorSlugOrName: string): PostMeta[] {
     return (
       postAuthorName.includes('meera') ||
       postAuthorName.includes('negi') ||
-      postAuthorName.includes('nair') ||
       normalized.includes('meera')
     );
   });
